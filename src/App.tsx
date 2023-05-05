@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { handleSession } from './Agent';
 import './App.scss';
+import Loading from './components/Loading';
 import Feed from './pages/feed';
 import Routes from './router/routes';
 
@@ -36,7 +37,13 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <RouterProvider router={Router} />
+        <Suspense fallback={
+          <div className='backdrop d-flex justify-content-center align-items-center'>
+            <Loading isColored />
+          </div>
+        }>
+          <RouterProvider router={Router} />
+        </Suspense>
       </div>
       <ReloadPrompt/>
     </QueryClientProvider>

@@ -1,12 +1,14 @@
-import Feed from "../pages/feed";
-import Login from "../pages/login";
-import Logout from "../pages/logout";
-import Notifications from "../pages/notifications";
-import Register from "../pages/register";
-import Settings from "../pages/settings";
-import SingleBlue from "../pages/singleblue";
-import User from "../pages/user";
-import Auth from "./Auth";
+import { lazy } from 'react';
+
+const Feed = lazy(() => import('../pages/feed'));
+const Login = lazy(() => import('../pages/login'));
+const Logout = lazy(() => import('../pages/logout'));
+const Notifications = lazy(() => import('../pages/notifications'));
+const Register = lazy(() => import('../pages/register'));
+const Settings = lazy(() => import('../pages/settings'));
+const SingleBlue = lazy(() => import('../pages/singleblue'));
+const User = lazy(() => import('../pages/user'));
+const Auth = lazy(() => import('./Auth'));
 
 const Routes = [
     {
